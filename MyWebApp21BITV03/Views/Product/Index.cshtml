@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MyWebApp21BITV03.Models.Product>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Danh sách Hàng hóa</h1>
+
+<p>
+	<a asp-action="Create">Tạo mới</a>
+</p>
+
+<div class="text-danger">@ViewBag.Message</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.ID)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@item.ID
+				</td>
+				<td>
+					@item.Name
+				</td>
+				<td>
+					@item.Price
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Sửa</a>
+					<a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Xóa</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
