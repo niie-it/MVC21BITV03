@@ -42,9 +42,30 @@
 				</td>
 				<td>
 					<a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Sửa</a>
-					<a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Xóa</a>
+					<a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-delete" data-id="@item.ID">Xóa</a>
 				</td>
 			</tr>
 		}
 	</tbody>
 </table>
+@section Scripts{
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		$(function () {
+			$(".btn-delete").click(function (e) { 
+				e.preventDefault();//ngăn chặn thay đổi link
+				Swal.fire({
+					title: 'Bạn có chắc xóa không?',
+					showDenyButton: true,
+					showCancelButton: true,
+					confirmButtonText: 'Xóa ngay',
+					denyButtonText: 'Không',
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location.href = "/Product/Delete/" + $(this).data("id");
+					}
+				})
+			});
+		});
+	</script>
+}
