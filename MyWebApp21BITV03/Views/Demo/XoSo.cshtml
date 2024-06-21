@@ -1,0 +1,14 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "XoSo";
+}
+<style>
+    .so{width: 30px; height: 30px; border: 1px solid red; border-radius: 15px; display: inline-block;text-align: center;}
+</style>
+
+<h1>Kết quả</h1>
+@foreach(var so in Model)
+{
+    <div class="so">@so</div>
+}
+
