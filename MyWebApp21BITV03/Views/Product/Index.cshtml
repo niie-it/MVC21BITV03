@@ -31,28 +31,23 @@
 		@foreach (var item in Model)
 		{
 			<tr>
-				<td>
-					@item.ID
-				</td>
-				<td>
-					@item.Name
-				</td>
-				<td>
-					@item.Price
-				</td>
+				<td>@item.ID</td>
+				<td>@item.Name</td>
+				<td>@item.Price</td>
 				<td>
 					<a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Sửa</a>
-					<a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-delete" data-id="@item.ID">Xóa</a>
+					<a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-delete" 
+						data-id="@item.ID">Xóa</a>
 				</td>
 			</tr>
 		}
 	</tbody>
 </table>
-@section Scripts{
+@section Scripts {
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script>
 		$(function () {
-			$(".btn-delete").click(function (e) { 
+			$(".btn-delete").click(function (e) {
 				e.preventDefault();//ngăn chặn thay đổi link
 				Swal.fire({
 					title: 'Bạn có chắc xóa không?',
