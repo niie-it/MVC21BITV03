@@ -17,5 +17,18 @@ namespace DemoBuoi03.Controllers
 
 			return Content($"Chạy sync hết {sw.ElapsedMilliseconds}ms");
 		}
+
+		public async Task<IActionResult> AsyncDemo()
+		{
+			var sw = new Stopwatch();
+			sw.Start();
+			var a =MyClass.FuncAAsync();
+			var b = MyClass.FuncBAsync();
+			var c = MyClass.FuncCAsync();
+			await a; await b; await c;
+			sw.Stop();
+
+			return Content($"Chạy sync hết {sw.ElapsedMilliseconds}ms");
+		}
 	}
 }
