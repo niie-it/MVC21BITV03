@@ -30,5 +30,10 @@ namespace DemoBuoi03.Controllers
 
 			return Content($"Chạy sync hết {sw.ElapsedMilliseconds}ms");
 		}
+
+		public IActionResult Tet()
+		{
+			return View();
+		}
 	}
 }

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Tet";
+}
+
+<h1>Tet</h1>
+
+@{
+    var tet2025 = new DateTime(2025, 1, 29, 0, 0, 0);
+}
+
+<div>Tết: @tet2025.ToString("dd/MM/yyyy")</div>
+<div>@tet2025.MongToiTet()</div>
+<div>@Html.Welcome()</div>
+<div>@Html.Welcome("Kê")</div>
+<div>@Html.Welcome("Lumina")</div>
+
+<hr />
+@{
+    var ebook = "978-1243-45";
+    var tieude = "<h2 style='color:red'>IPHONE 16</h2>";
+}
+<div>ISBN: @ebook</div>
+<div>@tieude</div>
+<div>@Html.Raw(tieude)</div>
+
+<hr />
+@{
+    var foo = 7;
+}
+@if(foo > 5)
+{
+    <span>Greater than 5</span>
+}
+@if (foo > 5)
+{
+    var x = foo;
+    <text>Greater than 5</text>
+}
+@if (foo > 5)
+{
+    @:Greater than 5
+}
+
+<!--Ghi chú HTML-->
+@*Ghi chú server*@
