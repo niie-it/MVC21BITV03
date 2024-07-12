@@ -5,6 +5,11 @@ namespace DemoValidation.Controllers
 {
     public class EmployeeController : Controller
     {
+        public IActionResult JoinWithUs()
+        {
+            return View();
+        }
+
         public IActionResult CheckExistedEmployee(string EmployeeNo)
         {
             var dsNhanVien = new List<string> { "aaaaaa", "bbbbbb", "cccccc"};
