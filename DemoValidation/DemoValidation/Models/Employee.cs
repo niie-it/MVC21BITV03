@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace DemoValidation.Models
 {
@@ -7,7 +8,8 @@ namespace DemoValidation.Models
         public int? Id { get; set; }
 
         [Display(Name = "Mã nhân viên")]
-        [RegularExpression(@"[a-z]{6}", ErrorMessage ="Đúng 6 kí tự")]
+        //[RegularExpression(@"[a-z]{6}", ErrorMessage ="Đúng 6 kí tự")]
+        [Remote(action:"CheckExistedEmployee", controller:"Employee")]
         public string EmployeeNo { get; set; }
 
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến 100 kí tự")]
