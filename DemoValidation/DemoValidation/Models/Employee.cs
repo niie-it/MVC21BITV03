@@ -6,6 +6,7 @@ namespace DemoValidation.Models
     {
         public int? Id { get; set; }
 
+        [Display(Name = "Mã nhân viên")]
         [RegularExpression(@"[a-z]{6}", ErrorMessage ="Đúng 6 kí tự")]
         public string EmployeeNo { get; set; }
 
@@ -18,9 +19,12 @@ namespace DemoValidation.Models
 
 
         [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage ="Mật khẩu không khớp")]
         public string ConfirmPassword { get; set; }
 
 
+        [DataType(DataType.Date)]
+        [EnoughAgeForWork]
         public DateTime BirthDate { get; set; }
 
         public string? Email { get; set; }
