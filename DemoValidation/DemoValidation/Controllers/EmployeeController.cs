@@ -5,7 +5,13 @@ namespace DemoValidation.Controllers
 {
     public class EmployeeController : Controller
     {
-        public IActionResult JoinWithUs()
+        public string CheckExistedEmployeeEmail(string Email)
+        {
+            var emailsInDb = new List<string> { "admin@gmail.com", "hyhien@gmail.com"};
+            return emailsInDb.Contains(Email) ? "false" : "true";
+        }
+
+		public IActionResult JoinWithUs()
         {
             return View();
         }
