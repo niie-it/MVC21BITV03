@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewBag.Title</title>
+	<!--Style area: start-->
+	<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	@RenderSection("Styles", required: false)
+	<!--Style area: end-->
+	<style>
+		.min-height-600 {
+			min-height: 600px;
+		}</style>
+</head>
+<body>
+	<div class="container">
+		<header>#HEADER</header>
+		<div class="row border-1">
+			<aside class="col-3 min-height-600">
+				#menu
+				<style>
+					li > a{text-decoration: none;}
+					li > a:hover{color: green; font-weight: bolder;}
+				</style>
+				
+				@await Html.PartialAsync("_MenuLoai")
+				@await Html.PartialAsync("_MenuLoai")
+
+			</aside>
+			<div class="col-9 min-height-600">
+				@RenderBody()
+			</div>
+		</div>
+		<footer class="bg-light p-2 text-center text-danger">
+			&copy; Copyright 2024 by tui&trade;
+		</footer>
+	</div>
+
+	<!--Scripts area: Start-->
+	<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	@RenderSection("Scripts", required: false)
+	<!--Scripts area: End-->
+</body>
+</html>
