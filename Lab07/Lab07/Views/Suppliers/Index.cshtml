@@ -1,0 +1,23 @@
+﻿@model List<Lab07.Data.Supplier>
+
+<h1>SUPPLIERS</h1>
+<a asp-action="Create">Create New</a>
+<table class="table table-border">
+	<tr>
+		<th>Name</th><th>Email</th><th>Phone</th><th>Logo</th>
+		<th>Actions</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.Name</td>
+			<td>@item.Email</td>
+			<td>@item.Phone</td>
+			<td>@item.Logo</td>
+			<td>
+				<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+				<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+			</td>
+		</tr>
+	}
+</table>
