@@ -1,7 +1,11 @@
+using LAB08.Entities;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<CarDealerContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyConn")));
 
 var app = builder.Build();
 
