@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using LAB08.Models;
 
 namespace LAB08.Entities;
 
@@ -72,4 +73,6 @@ public partial class CarDealerContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+public DbSet<LAB08.Models.KhachHangMuaXeVM> KhachHangMuaXeVM { get; set; } = default!;
 }

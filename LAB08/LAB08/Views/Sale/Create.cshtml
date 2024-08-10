@@ -1,0 +1,15 @@
+﻿@model LAB08.Entities.Sale
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Sales</h1>
+<form asp-action="ConfirmSale">
+    <div class="row">
+        <div class="col-4" style="text-align:right;">Customer:</div>
+        <div class="col-8">
+            <select asp-for="CarId" asp-items="ViewBag.Cars"></select>
+        </div>
+    </div>
+</form>
+
